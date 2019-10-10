@@ -68,7 +68,7 @@ const utils = {
  * @returns {number} luminance
  */
 const calculateLuminance = (r, g, b) => {
-  if (!r || !g || !b)
+  if (r == undefined || g == undefined || b == undefined)
     throw new Error("calculateLuminance requires three arguments.");
 
   if (typeof r != "number" || typeof g != "number" || typeof b != "number")
@@ -95,7 +95,7 @@ const calculateLuminance = (r, g, b) => {
  * @returns {object} rgb object with r, g, b and optionally a keys
  */
 const hexToRGBA = hex => {
-  if (!hex || typeof hex != "string" || hex.length < 3)
+  if (hex == undefined || typeof hex != "string" || hex.length < 3)
     throw new Error("invalid hex value passed to hexToRGBA");
 
   if (hex.indexOf("#") == 0) hex = hex.substring(1);
@@ -188,7 +188,8 @@ const rgbToHex = (r, g, b) => `#${utils.hex(r)}${utils.hex(g)}${utils.hex(b)}`;
  * @returns {object} rgb object with red, green, and blue keys
  */
 const hslToRGB = (h, s, l) => {
-  if (!h || !s || !l) throw new Error("hslToRGB requires three arguments.");
+  if (h == undefined || s == undefined || l == undefined)
+    throw new Error("hslToRGB requires three arguments.");
 
   if (typeof h != "number" || typeof s != "number" || typeof l != "number")
     throw new Error("arguments passed to hslToRGB must be numbers.");
@@ -231,7 +232,8 @@ const hslToRGB = (h, s, l) => {
  * @returns {object} object with h, s, and l keys
  */
 const rgbToHSL = (r, g, b) => {
-  if (!r || !g || !b) throw new Error("rgbToHSL requires three arguments.");
+  if (r == undefined || g == undefined || b == undefined)
+    throw new Error("rgbToHSL requires three arguments.");
 
   if (typeof r != "number" || typeof g != "number" || typeof b != "number")
     throw new Error("arguments passed to rgbToHSL must be numbers.");
@@ -275,7 +277,8 @@ const rgbToHSL = (r, g, b) => {
  * @returns {object} Description
  */
 const rgbToNHSL = (r, g, b) => {
-  if (!r || !g || !b) throw new Error("rgbToNHSL requires three arguments.");
+  if (r == undefined || g == undefined || b == undefined)
+    throw new Error("rgbToNHSL requires three arguments.");
 
   if (typeof r != "number" || typeof g != "number" || typeof b != "number")
     throw new Error("arguments passed to rgbToNHSL must be numbers.");
@@ -320,7 +323,8 @@ const rgbToNHSL = (r, g, b) => {
  * @returns {object} rgb object with red, green, and blue keys
  */
 const shiftHue = (rgb, deg) => {
-  if (!rgb || !deg) throw new Error("shiftHue requires two arguments.");
+  if (rgb == undefined || deg == undefined)
+    throw new Error("shiftHue requires two arguments.");
   if (typeof rgb != "object" || typeof deg != "number")
     throw new Error(
       "shiftHue requires an object as argument 1 and a number as argument 2."
@@ -343,6 +347,11 @@ const shiftHue = (rgb, deg) => {
  * @returns {object} contrast ratio object with contrast ratio represented as a string and a decimal
  */
 const getContrastRatio = (hex1, hex2) => {
+  if (hex1 == undefined || hex2 == undefined)
+    throw new Error("getContrastRatio requires two arguments.");
+  if (typeof hex1 != "string" || typeof hex2 != "string")
+    throw new Error("arguments to getContrastRatio must be strings.");
+
   let txRGB = hexToRGBA(hex1);
   let bgRGB = hexToRGBA(hex2);
 
@@ -363,17 +372,19 @@ const getContrastRatio = (hex1, hex2) => {
 };
 
 const getWcagLevels = ratio => {
+  if (ratio == undefined || typeof ratio != "number")
+    throw new Error("invalid argument passed to getWcagLevels.");
+
   for (let i in utils.wcagLevels) {
     for (let j in utils.wcagLevels[i]) {
       let levels = utils.wcagLevels[i][j];
       if (ratio >= levels[0] && ratio <= levels[1]) {
-        return `wcag: ${contrastRatioNumber
+        return `wcag: ${ratio
           .toFixed(2)
           .toString()
           .padEnd(4, "0")
           .padStart(5, "0")} (${i.toUpperCase()})`;
-      } else
-        throw new Error("invalid contrast ratio provided to getWcagLevels");
+      }
     }
   }
 };

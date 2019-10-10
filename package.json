@@ -1,0 +1,24 @@
+{
+  "name": "colorsheet",
+  "version": "1.0.0",
+  "description": "various useful color conversion and utility functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha colorsheet.test.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpegzilla/colorsheet.git"
+  },
+  "author": "jpegzilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpegzilla/colorsheet/issues"
+  },
+  "homepage": "https://github.com/jpegzilla/colorsheet#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1"
+  }
+}
