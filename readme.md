@@ -2,6 +2,19 @@
 
 colorsheet is a small library containing several functions for converting between color formats and calculating things like contrast and luminance.
 
+usage:
+
+`npm i colorsheet`
+
+then (example):
+
+```javascript
+const colorsheet = require('colorsheet')
+
+const emerald = hexToRGBA("#50c878")
+// returns {r: 80, g: 200, b: 120}
+```
+
 here's what it exposes:
 
 ```
