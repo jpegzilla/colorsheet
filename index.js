@@ -168,7 +168,7 @@ const hexToRGBA = hex => {
 };
 
 /**
- * rgbToHex - Description
+ * rgbToHex - converts rgb color to hex color
  *
  * @param {number} r red color number
  * @param {number} g green color number
@@ -270,11 +270,11 @@ const rgbToHSL = (r, g, b) => {
 /**
  * rgbToNHSL - rgb to number hsl - hsl with decimal / integer values instead of typical hsl notation
  *
- * @param {number} r Description
- * @param {number} g Description
- * @param {number} b Description
+ * @param {number} r color red from 0-255
+ * @param {number} g color green from 0-255
+ * @param {number} b color blue from 0-255
  *
- * @returns {object} Description
+ * @returns {object} object containing hue, saturation, and lightness values
  */
 const rgbToNHSL = (r, g, b) => {
   if (r == undefined || g == undefined || b == undefined)
@@ -315,7 +315,7 @@ const rgbToNHSL = (r, g, b) => {
 };
 
 /**
- * shiftHue - Description
+ * shiftHue - shifts the hue value of an rgb color
  *
  * @param {object} rgb object with red, green, and blue keys
  * @param {number} deg amount to shift the hue of the color
@@ -342,7 +342,7 @@ const shiftHue = (rgb, deg) => {
  * getContrastRatio - get the contrast rati between two colors
  *
  * @param {type} hex1 first hex value for contrast calculation
- * @param {type} hex2 first hex value for contrast calculation
+ * @param {type} hex2 second hex value for contrast calculation
  *
  * @returns {object} contrast ratio object with contrast ratio represented as a string and a decimal
  */
