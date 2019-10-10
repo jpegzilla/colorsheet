@@ -11,7 +11,7 @@ then (example):
 ```javascript
 const colorsheet = require('colorsheet')
 
-const emerald = hexToRGBA("#50c878")
+const emerald = colorsheet.hexToRGBA("#50c878")
 // returns {r: 80, g: 200, b: 120}
 ```
 
