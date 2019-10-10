@@ -152,5 +152,5 @@ getContrastRatio - get the contrast rati between two colors
 
 | param | type | description |
 | --- | --- | --- |
-| hex1 | <code>type</code> | first hex value for contrast calculation |
-| hex2 | <code>type</code> | second hex value for contrast calculation |
+| hex1 | <code>string</code> | first hex value for contrast calculation |
+| hex2 | <code>string</code> | second hex value for contrast calculation |

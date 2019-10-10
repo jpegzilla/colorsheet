@@ -341,8 +341,8 @@ const shiftHue = (rgb, deg) => {
 /**
  * getContrastRatio - get the contrast rati between two colors
  *
- * @param {type} hex1 first hex value for contrast calculation
- * @param {type} hex2 second hex value for contrast calculation
+ * @param {string} hex1 first hex value for contrast calculation
+ * @param {string} hex2 second hex value for contrast calculation
  *
  * @returns {object} contrast ratio object with contrast ratio represented as a string and a decimal
  */
