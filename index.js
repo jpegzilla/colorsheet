@@ -323,17 +323,17 @@ const rgbToNHSL = (r, g, b) => {
  * @returns {object} rgb object with red, green, and blue keys
  */
 const shiftHue = (rgb, deg) => {
-  if (rgb == undefined || deg == undefined)
-    throw new Error("shiftHue requires two arguments.");
-  if (typeof rgb != "object" || typeof deg != "number")
-    throw new Error(
-      "shiftHue requires an object as argument 1 and a number as argument 2."
+  let hsl = rgbToNHSL(rgb.r, rgb.g, rgb.b);
+
+  if (deg > 100 || deg < 0)
+    throw new RangeError(
+      "amount of hue shifting in shiftHue must be within the range [0, 100]."
     );
 
-  let hsl = rgbToNHSL(rgb.r, rgb.g, rgb.b);
   hsl.h += deg;
-  if (hsl.h > 360) hsl.h -= 360;
-  else if (hsl.h < 0) hsl.h += 360;
+  hsl.h /= 360;
+  hsl.s /= 100;
+  hsl.l /= 100;
 
   return hslToRGB(hsl.h, hsl.s, hsl.l);
 };
