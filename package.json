@@ -1,6 +1,6 @@
 {
   "name": "colorsheet",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "various useful color conversion and utility functions",
   "main": "index.js",
   "scripts": {
