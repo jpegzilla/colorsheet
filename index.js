@@ -331,6 +331,8 @@ const shiftHue = (rgb, deg) => {
     );
 
   hsl.h += deg;
+  if (hsl.h < 0) hsl.h += 360;
+  if (hsl.h > 360) hsl.h -= 360;
   hsl.h /= 360;
   hsl.s /= 100;
   hsl.l /= 100;
