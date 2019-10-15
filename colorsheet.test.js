@@ -37,11 +37,11 @@ describe("colorsheet tests", function() {
 
   describe("> colorsheet.getWcagLevels", function() {
     it("should return a string", function() {
-      assert.equal(typeof colorsheet.getWcagLevels(7), "string");
+      assert.equal(typeof colorsheet.getWcagLevels(21), "string");
     });
 
-    it("should return aaa contrast ratio at a contrast ratio >= 7", function() {
-      assert.equal(colorsheet.getWcagLevels(7), "wcag: 07.00 (AA)");
+    it("should return aaa contrast ratio at a contrast ratio > 7", function() {
+      assert.equal(colorsheet.getWcagLevels(8), "wcag: 08.00 (AAA)");
     });
   });
 });
