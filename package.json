@@ -19,6 +19,6 @@
   "homepage": "https://github.com/jpegzilla/colorsheet#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.1"
+    "mocha": "^10.2.0"
   }
 }
